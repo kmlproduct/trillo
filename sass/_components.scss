@@ -61,6 +61,9 @@
   & > * {
     padding: 0 2rem;
     cursor: pointer;
+    @media only screen and(max-width: $bp-smallset) {
+      padding: 0 1rem;
+    }
   }
   & > *:hover {
     background-color: var(--color-grey-light-2);
@@ -70,6 +73,9 @@
     display: flex;
     align-items: center;
     position: relative;
+    // @media only screen and(max-width: 350px) {
+    //   display: none;
+    // }
   }
   &__icon {
     height: 2.25rem;
@@ -113,11 +119,30 @@
   list-style: none;
   font-size: 1.4rem;
   color: #fff;
-
+  @media only screen and(max-width: $bp-medium) {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
+  }
+  @media only screen and(max-width: $bp-medium) {
+    flex-direction: row;
+    margin: 0;
+  }
+  @media only screen and(max-width: $bp-smallset) {
+    flex-direction: column;
+    margin: 0;
+  }
   &__item {
     position: relative;
+
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+      @media only screen and(max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+    @media only screen and(max-width: $bp-medium) {
+      flex: 1;
     }
   }
   &__item::before {
@@ -153,6 +178,13 @@
     align-items: center;
     position: relative;
     z-index: 10;
+    @media only screen and(max-width: $bp-medium) {
+      justify-content: center;
+      padding: 1rem;
+    }
+    @media only screen and(max-width: $bp-smallset) {
+      justify-content: flex-start;
+    }
   }
   &__icon {
     height: 2rem;
@@ -166,6 +198,9 @@
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4);
+  @media only screen and(max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 // hotel over view
@@ -187,6 +222,12 @@
   display: flex;
   align-items: center;
   border-bottom: 2px solid var(--color-grey-light-3);
+  @media only screen and(max-width: $bp-smallset) {
+    flex-direction: column;
+    & > * {
+      margin-bottom: 2rem;
+    }
+  }
   &__heading {
     font-size: 2.5rem;
     font-weight: 300;
@@ -194,11 +235,18 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1rem 2rem;
+    @media only screen and(max-width: $bp-small) {
+      font-size: 1.5rem;
+    }
   }
   &__stars {
     margin-right: auto;
     display: flex;
+    @media only screen and(max-width: $bp-smallset) {
+      margin-right: 0;
+    }
   }
+
   &__icon-star,
   &__icon-location {
     width: 2rem;
@@ -223,11 +271,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media only screen and(max-width: $bp-smallset) {
+      margin-right: 0;
+      align-self: center;
+    }
   }
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -7px;
+    @media only screen and(max-width: $bp-small) {
+      font-size: 1.25rem;
+      margin-bottom: 0px;
+    }
   }
   &__raring-count {
     font-size: 0.8rem;
@@ -245,8 +301,16 @@
   background-color: transparent;
   cursor: pointer;
   transition: all 0.2s;
+  & span {
+    margin-left: 3px;
+    transition: all 0.2s;
+  }
+
   &:hover {
     color: var(--color-grey-light-4);
+    span {
+      margin-left: 8px;
+    }
   }
   &:focus {
     outline: none;
@@ -283,6 +347,11 @@
   border-bottom: var(--line);
   display: flex;
   flex-wrap: wrap;
+  @media only screen and(max-width: $bp-smallset) {
+    margin: 0;
+    padding: 1.5rem 0;
+    flex-direction: column;
+  }
   &__item {
     flex: 0 0 50%;
     margin-bottom: 0.7rem;
@@ -305,8 +374,19 @@
   align-items: center;
   font-size: 1rem;
   color: var(--color-grey-light-4);
+  @media only screen and(max-width: $bp-smallset) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > * {
+      margin: 1rem 0;
+    }
+  }
   &__count {
     margin-right: auto;
+    @media only screen and(max-width: $bp-smallset) {
+      margin-right: 0;
+    }
   }
   &__friends {
     display: flex;
@@ -319,6 +399,125 @@
     border: 2px solid rgb(163, 159, 159);
     &:not(:last-child) {
       margin-right: -8.5px;
+    }
+  }
+}
+
+// user review
+.user-reviews {
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+  }
+  &__box1 {
+    position: relative;
+    background-color: #fff;
+    padding: 2rem;
+    p {
+      z-index: 2;
+      position: relative;
+    }
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+  &__person-review {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    &::before {
+      content: "\201F";
+      position: absolute;
+      font-size: 9rem;
+      top: -22px;
+      left: 4px;
+      color: var(--color-grey-light-4);
+    }
+
+    img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    .persone-name {
+      margin-right: auto;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: bold;
+
+      span {
+        display: block;
+      }
+      .span-2 {
+        color: var(--color-grey-light-4);
+        font-weight: none;
+      }
+    }
+    .number-review {
+      color: var(--color-primary);
+      font-size: 1.7rem;
+    }
+  }
+}
+// call to action
+.footer {
+  padding: 3rem 0;
+  text-align: center;
+  &__book-now {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  &__btn {
+    position: relative;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: white;
+    font-weight: 300;
+    width: 25rem;
+    height: 5rem;
+    overflow: hidden;
+    cursor: pointer;
+    background-image: linear-gradient(
+      to right,
+      (var(--color-primary), var(--color-grey-dark-1))
+    );
+    transition: all 0.2s;
+    &:hover {
+      width: 27rem;
+      box-shadow: 0 1rem 4rem 0 rgba(0, 0, 0.25);
+    }
+    .btn-visible {
+      display: inline-block;
+      position: absolute;
+      padding: 2rem 0;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: -5px;
+      transition: all 0.2s;
+    }
+    .btn-invisible {
+      display: inline-block;
+      position: absolute;
+      padding: 2rem 0;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: -100%;
+      transition: all 0.2s;
+    }
+    &:hover .btn-invisible {
+      top: -5px;
+    }
+    &:hover .btn-visible {
+      top: 100%;
     }
   }
 }
