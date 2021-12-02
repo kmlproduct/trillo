@@ -10,6 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and(max-width: $bp-smallset) {
+    order: 1;
+    flex: 0 0 100%;
+    padding: 1rem 0;
+  }
 
   &__input {
     font-family: inherit;
@@ -129,11 +134,12 @@
     margin: 0;
   }
   @media only screen and(max-width: $bp-smallset) {
-    flex-direction: column;
     margin: 0;
   }
+
   &__item {
     position: relative;
+    display: flex;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
@@ -184,6 +190,9 @@
     }
     @media only screen and(max-width: $bp-smallset) {
       justify-content: flex-start;
+      flex-direction: column;
+      font-size: 1rem;
+      align-items: center;
     }
   }
   &__icon {
@@ -222,12 +231,7 @@
   display: flex;
   align-items: center;
   border-bottom: 2px solid var(--color-grey-light-3);
-  @media only screen and(max-width: $bp-smallset) {
-    flex-direction: column;
-    & > * {
-      margin-bottom: 2rem;
-    }
-  }
+
   &__heading {
     font-size: 2.5rem;
     font-weight: 300;
@@ -238,12 +242,18 @@
     @media only screen and(max-width: $bp-small) {
       font-size: 1.5rem;
     }
+    @media only screen and(max-width: $bp-smallset) {
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 0;
+    }
   }
   &__stars {
     margin-right: auto;
     display: flex;
     @media only screen and(max-width: $bp-smallset) {
-      margin-right: 0;
+      padding: 1rem;
     }
   }
 
@@ -257,6 +267,9 @@
     display: flex;
     font-size: 1.2rem;
     vertical-align: center;
+    @media only screen and(max-width: $bp-smallset) {
+      font-size: 1rem;
+    }
   }
   &__icon-location {
     margin-right: 0.5rem;
@@ -271,19 +284,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @media only screen and(max-width: $bp-smallset) {
-      margin-right: 0;
-      align-self: center;
+    @media only screen and(max-width: $bp-small) {
+      font-size: 1rem;
+      margin-bottom: 0px;
     }
   }
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -7px;
-    @media only screen and(max-width: $bp-small) {
-      font-size: 1.25rem;
-      margin-bottom: 0px;
-    }
   }
   &__raring-count {
     font-size: 0.8rem;

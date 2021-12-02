@@ -62,13 +62,18 @@ body {
 }
 
 .header {
-  height: 6rem;
+  padding: 2rem 0;
   font-size: 1.4rem;
   background-color: #fff;
   border-bottom: 1px solid var(--color-grey-light-2);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media only screen and (max-width: 467px) {
+  .header {
+    flex-wrap: wrap;
+  }
 }
 
 .content {
@@ -143,6 +148,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media only screen and (max-width: 467px) {
+  .search {
+    order: 1;
+    flex: 0 0 100%;
+    padding: 1rem 0;
+  }
 }
 .search__input {
   font-family: inherit;
@@ -263,12 +275,12 @@ body {
 }
 @media only screen and (max-width: 467px) {
   .side-nav {
-    flex-direction: column;
     margin: 0;
   }
 }
 .side-nav__item {
   position: relative;
+  display: flex;
 }
 .side-nav__item:not(:last-child) {
   margin-bottom: 0.5rem;
@@ -321,6 +333,9 @@ body {
 @media only screen and (max-width: 467px) {
   .side-nav__link:link, .side-nav__link:visited {
     justify-content: flex-start;
+    flex-direction: column;
+    font-size: 1rem;
+    align-items: center;
   }
 }
 .side-nav__icon {
@@ -361,14 +376,6 @@ body {
   align-items: center;
   border-bottom: 2px solid var(--color-grey-light-3);
 }
-@media only screen and (max-width: 467px) {
-  .overview {
-    flex-direction: column;
-  }
-  .overview > * {
-    margin-bottom: 2rem;
-  }
-}
 .overview__heading {
   font-size: 2.5rem;
   font-weight: 300;
@@ -382,13 +389,21 @@ body {
     font-size: 1.5rem;
   }
 }
+@media only screen and (max-width: 467px) {
+  .overview__heading {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0;
+  }
+}
 .overview__stars {
   margin-right: auto;
   display: flex;
 }
 @media only screen and (max-width: 467px) {
   .overview__stars {
-    margin-right: 0;
+    padding: 1rem;
   }
 }
 .overview__icon-star, .overview__icon-location {
@@ -400,6 +415,11 @@ body {
   display: flex;
   font-size: 1.2rem;
   vertical-align: center;
+}
+@media only screen and (max-width: 467px) {
+  .overview__location {
+    font-size: 1rem;
+  }
 }
 .overview__icon-location {
   margin-right: 0.5rem;
@@ -415,22 +435,16 @@ body {
   justify-content: center;
   align-items: center;
 }
-@media only screen and (max-width: 467px) {
+@media only screen and (max-width: 37.5em) {
   .overview__rating {
-    margin-right: 0;
-    align-self: center;
+    font-size: 1rem;
+    margin-bottom: 0px;
   }
 }
 .overview__rating-average {
   font-size: 2.25rem;
   font-weight: 300;
   margin-bottom: -7px;
-}
-@media only screen and (max-width: 37.5em) {
-  .overview__rating-average {
-    font-size: 1.25rem;
-    margin-bottom: 0px;
-  }
 }
 .overview__raring-count {
   font-size: 0.8rem;
